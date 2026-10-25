@@ -1,3 +1,5 @@
+package modelo.componentes;
+
 import java.time.LocalDateTime;
 
 public class Bug {

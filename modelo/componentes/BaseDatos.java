@@ -1,3 +1,5 @@
+package modelo.componentes;
+
 import java.util.ArrayList;
 
 public class BaseDatos {
