@@ -6,14 +6,14 @@ public class Bug {
 
 	final String ID;
 	String titulo;
-	String prioridad;
+	int prioridad;
 	int nivelSeguridad;
 	String equipo;
 	String categoria;
 	int estado;
 	LocalDateTime fecha;
 
-	public Bug(String titulo, String prioridad, int nivelSeguridad,
+	public Bug(String titulo, int prioridad, int nivelSeguridad,
 			String equipo, String categoria, int estado, LocalDateTime fecha) {
 
 		this.titulo = titulo;
