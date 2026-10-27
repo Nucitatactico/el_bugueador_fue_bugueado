@@ -32,9 +32,37 @@ public abstract class Ordenamientos
         return new ArrayList<Bug>(Arrays.asList(ordenado));
     }
 
+    public static ArrayList<Bug> ordenarTitulo(ArrayList<Bug> lista)
+    {
+        Bug[] ordenado = lista.toArray(new Bug[0]);
+
+        mergeSort(ordenado, 0, ordenado.length-1, (b1, b2) -> b1.titulo.compareToIgnoreCase(b2.titulo) <= 0);
+    
+        return new ArrayList<Bug>(Arrays.asList(ordenado));
+    }
+
+    public static ArrayList<Bug> ordenarID(ArrayList<Bug> lista)
+    {
+        Bug[] ordenado = lista.toArray(new Bug[0]);
+
+        mergeSort(ordenado, 0, ordenado.length-1, (b1, b2) -> b1.ID.compareToIgnoreCase(b2.ID) <= 0);
+    
+        return new ArrayList<Bug>(Arrays.asList(ordenado));
+    }
+
     public static ArrayList<Bug> ordenarNivelSeguridad(ArrayList<Bug> lista)
     {
         return countigSort(lista, Bug -> Bug.nivelSeguridad);
+    }
+
+    public static ArrayList<Bug> ordenarEstado(ArrayList<Bug> lista)
+    {
+        return countigSort(lista, Bug -> Bug.estado);
+    }
+
+    public static ArrayList<Bug> ordenarPrioridad(ArrayList<Bug> lista)
+    {
+        return countigSort(lista, Bug -> Bug.prioridad);
     }
 
 
