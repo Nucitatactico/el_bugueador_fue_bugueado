@@ -59,7 +59,7 @@ public class Bug {
 		this.estado = estado;
 	}
 
-	void setPrioridad(String prioridad) {
+	void setPrioridad(int prioridad) {
 		this.prioridad = prioridad;
 	}
 
