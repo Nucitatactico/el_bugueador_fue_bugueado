@@ -1,4 +1,4 @@
-package modelo.componentes;
+package Bugueador.modelo;
 
 import java.time.LocalDateTime;
 
@@ -66,6 +66,42 @@ public class Bug {
 	public String getID() {
 		return ID;
 	}
+
+	public String getTitulo()
+	{
+		return titulo;
+	}
+
+	public int getPrioridad()
+	{
+		return prioridad;
+	}
+
+	public int getNivelSeguridad()
+	{
+		return nivelSeguridad;
+	}
+
+	public String getEquipo()
+	{
+		return equipo;
+	}
+
+	public String getCategoria()
+	{
+		return categoria;
+	}
+
+	public int getEstado()
+	{
+		return estado;
+	}
+
+	public LocalDateTime getFecha()
+	{
+		return fecha;
+	}
+
 
 	@Override
 	public String toString() {

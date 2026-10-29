@@ -1,24 +1,24 @@
-package modelo.componentes;
+package Bugueador.controlador;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.BiPredicate;
-import modelo.componentes.Bug;
+import Bugueador.modelo.Bug;
 
 public abstract class Ordenamientos
 {
     public static ArrayList<Bug> ordenarFecha(ArrayList<Bug> lista)
     {
-        bubbleSort(lista, (b1, b2) -> b1.fecha.getDayOfMonth() > b2.fecha.getDayOfMonth());
-        bubbleSort(lista, (b1, b2) -> b1.fecha.getMonthValue() > b2.fecha.getMonthValue());
-        bubbleSort(lista, (b1, b2) -> b1.fecha.getYear() > b2.fecha.getYear());
+        bubbleSort(lista, (b1, b2) -> b1.getFecha().getDayOfMonth() > b2.getFecha().getDayOfMonth());
+        bubbleSort(lista, (b1, b2) -> b1.getFecha().getMonthValue() > b2.getFecha().getMonthValue());
+        bubbleSort(lista, (b1, b2) -> b1.getFecha().getYear() > b2.getFecha().getYear());
 
         return lista;
     }
 
     public static ArrayList<Bug> ordenarEquipo(ArrayList<Bug> lista)
     {
-        bubbleSort(lista, (b1, b2) -> b1.equipo.compareToIgnoreCase(b2.equipo) > 0);
+        bubbleSort(lista, (b1, b2) -> b1.getEquipo().compareToIgnoreCase(b2.getEquipo()) > 0);
 
         return lista;
     }
@@ -27,7 +27,7 @@ public abstract class Ordenamientos
     {
         Bug[] ordenado = lista.toArray(new Bug[0]);
 
-        mergeSort(ordenado, 0, ordenado.length-1, (b1, b2) -> b1.categoria.compareToIgnoreCase(b2.categoria) <= 0);
+        mergeSort(ordenado, 0, ordenado.length-1, (b1, b2) -> b1.getCategoria().compareToIgnoreCase(b2.getCategoria()) <= 0);
     
         return new ArrayList<Bug>(Arrays.asList(ordenado));
     }
@@ -36,7 +36,7 @@ public abstract class Ordenamientos
     {
         Bug[] ordenado = lista.toArray(new Bug[0]);
 
-        mergeSort(ordenado, 0, ordenado.length-1, (b1, b2) -> b1.titulo.compareToIgnoreCase(b2.titulo) <= 0);
+        mergeSort(ordenado, 0, ordenado.length-1, (b1, b2) -> b1.getTitulo().compareToIgnoreCase(b2.getTitulo()) <= 0);
     
         return new ArrayList<Bug>(Arrays.asList(ordenado));
     }
@@ -45,24 +45,24 @@ public abstract class Ordenamientos
     {
         Bug[] ordenado = lista.toArray(new Bug[0]);
 
-        mergeSort(ordenado, 0, ordenado.length-1, (b1, b2) -> b1.ID.compareToIgnoreCase(b2.ID) <= 0);
+        mergeSort(ordenado, 0, ordenado.length-1, (b1, b2) -> b1.getID().compareToIgnoreCase(b2.getID()) <= 0);
     
         return new ArrayList<Bug>(Arrays.asList(ordenado));
     }
 
     public static ArrayList<Bug> ordenarNivelSeguridad(ArrayList<Bug> lista)
     {
-        return countigSort(lista, Bug -> Bug.nivelSeguridad);
+        return countigSort(lista, Bug -> Bug.getNivelSeguridad());
     }
 
     public static ArrayList<Bug> ordenarEstado(ArrayList<Bug> lista)
     {
-        return countigSort(lista, Bug -> Bug.estado);
+        return countigSort(lista, Bug -> Bug.getEstado());
     }
 
     public static ArrayList<Bug> ordenarPrioridad(ArrayList<Bug> lista)
     {
-        return countigSort(lista, Bug -> Bug.prioridad);
+        return countigSort(lista, Bug -> Bug.getPrioridad());
     }
 
 

@@ -1,9 +1,9 @@
-package modelo.componentes;
+package Bugueador.controlador;
 
 import java.util.ArrayList;
-import modelo.componentes.Bug;
-import modelo.componentes.BaseDatos;
-import modelo.componentes.Ordenamientos;
+import Bugueador.modelo.Bug;
+import Bugueador.modelo.BaseDatos;
+import Bugueador.controlador.Ordenamientos;
 
 public class Consulta
 {
@@ -22,7 +22,7 @@ public class Consulta
 
         do
         {
-            indice = busquedaBinaria(titulo, lista, Bug -> Bug.titulo);
+            indice = busquedaBinaria(titulo, lista, Bug -> Bug.getTitulo());
             
             if(indice != -1)
                 encontrados.add(lista.remove(indice));
@@ -48,7 +48,7 @@ public class Consulta
 
         do
         {
-            indice = busquedaBinaria(categoria, lista, Bug -> Bug.categoria);
+            indice = busquedaBinaria(categoria, lista, Bug -> Bug.getCategoria());
             
             if(indice != -1)
                 encontrados.add(lista.remove(indice));
@@ -67,7 +67,7 @@ public class Consulta
 
         do
         {
-            indice = busquedaBinaria(equipo, lista, Bug -> Bug.equipo);
+            indice = busquedaBinaria(equipo, lista, Bug -> Bug.getEquipo());
             
             if(indice != -1)
                 encontrados.add(lista.remove(indice));
@@ -86,7 +86,7 @@ public class Consulta
 
         do
         {
-            indice = busquedaBinaria(nivelSeguridad, lista, Bug -> Bug.nivelSeguridad);
+            indice = busquedaBinaria(nivelSeguridad, lista, Bug -> Bug.getNivelSeguridad());
             
             if(indice != -1)
                 encontrados.add(lista.remove(indice));

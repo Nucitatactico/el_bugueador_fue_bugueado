@@ -1,8 +1,8 @@
-package modelo;
+package Bugueador;
 
 import java.time.LocalDateTime;
-import modelo.componentes.BaseDatos;
-import modelo.componentes.Bug;
+import Bugueador.modelo.BaseDatos;
+import Bugueador.modelo.Bug;
 
 public class Principal {
     public static void main(String[] args) {

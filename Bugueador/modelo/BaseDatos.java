@@ -1,4 +1,4 @@
-package modelo.componentes;
+package Bugueador.modelo;
 
 import java.util.ArrayList;
 

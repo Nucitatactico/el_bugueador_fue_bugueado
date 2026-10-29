@@ -1,12 +1,12 @@
-package modelo;
+package Bugueador;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
-import modelo.componentes.BaseDatos;
-import modelo.componentes.Bug;
-import modelo.componentes.Consulta;
-import modelo.componentes.Ordenamientos;
+import Bugueador.modelo.BaseDatos;
+import Bugueador.modelo.Bug;
+import Bugueador.controlador.Consulta;
+import Bugueador.controlador.Ordenamientos;
 
 public class Menu {
     private BaseDatos db;
@@ -315,42 +315,42 @@ public class Menu {
                 case 1:
                     lista = Ordenamientos.ordenarTitulo(lista);
                     for (Bug b : lista)
-                        System.out.println(b.toString());
+                        System.out.println(b);
                     break;
                 case 2:
                     lista = Ordenamientos.ordenarID(lista);
                     for (Bug b : lista)
-                        System.out.println(b.toString());
+                        System.out.println(b);
                     break;
                 case 3:
                     lista = Ordenamientos.ordenarPrioridad(lista);
                     for (Bug b : lista)
-                        System.out.println(b.toString());
+                        System.out.println(b);
                     break;
                 case 4:
                     lista = Ordenamientos.ordenarEquipo(lista);
                     for (Bug b : lista)
-                        System.out.println(b.toString());
+                        System.out.println(b);
                     break;
                 case 5:
                     lista = Ordenamientos.ordenarNivelSeguridad(lista);
                     for (Bug b : lista)
-                        System.out.println(b.toString());
+                        System.out.println(b);
                     break;
                 case 6:
                     lista = Ordenamientos.ordenarCategoria(lista);
                     for (Bug b : lista)
-                        System.out.println(b.toString());
+                        System.out.println(b);
                     break;
                 case 7:
                     lista = Ordenamientos.ordenarEstado(lista);
                     for (Bug b : lista)
-                        System.out.println(b.toString());
+                        System.out.println(b);
                     break;
                 case 8:
                     lista = Ordenamientos.ordenarFecha(lista);
                     for (Bug b : lista)
-                        System.out.println(b.toString());
+                        System.out.println(b);
                     break;
                 case 9:
                     break;
