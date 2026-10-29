@@ -206,14 +206,14 @@ public class Menu {
             
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese titulo a buscar: ");
-                    String t = scanner.nextLine();
-                    ArrayList<Bug> resT = consulta.buscarTitulo(t);
-                    System.out.println("Coincidencias: " + resT.size());
-                    for (Bug b : resT) 
-                        System.out.println(b);
+                        System.out.print("Ingrese titulo a buscar: ");
+                        String t = scanner.nextLine();
+                        ArrayList<Bug> resT = consulta.buscarTitulo(t);
+                        System.out.println("Coincidencias: " + resT.size());
+                        for (Bug b : resT) 
+                            System.out.println(b);
                     break;
-                    case 2:
+                case 2:
                         System.out.print("Ingrese ID a buscar: ");
                         String id = scanner.nextLine();
                         Bug bID = consulta.buscarID(id);
@@ -223,50 +223,66 @@ public class Menu {
                         }
                         else
                             System.out.println("Coincidencias: 0");
-                        break;
-                        case 3:
-                            System.out.println("Seleccione categoria");
-                            System.out.println("1 Interfaz\n2 Lógica\n3 Rendimiento\n4 Seguridad");
-                            int cOp = scanner.nextInt();
-                            scanner.nextLine();
-                            String cat = "Interfaz";
-                            switch (cOp) {
-                                case 1 -> cat = "Interfaz";
-                                case 2 -> cat = "Lógica";
-                                case 3 -> cat = "Rendimiento";
-                                case 4 -> cat = "Seguridad";
-                            }
-                            ArrayList<Bug> resC = consulta.buscarCategoria(cat);
-                    System.out.println("Coincidencias: " + resC.size());
-                    for (Bug b : resC)
-                        System.out.println(b);
+                    break;
+                case 3:
+                        System.out.println("Seleccione categoria");
+                        System.out.println("1 Interfaz\n2 Lógica\n3 Rendimiento\n4 Seguridad");
+                        
+                        int cOp = scanner.nextInt();
+                        scanner.nextLine();
+                        String cat = "Interfaz";
+                        
+                        switch (cOp) {
+                            case 1 -> cat = "Interfaz";
+                            case 2 -> cat = "Lógica";
+                            case 3 -> cat = "Rendimiento";
+                            case 4 -> cat = "Seguridad";
+                        }
+                        
+                        ArrayList<Bug> resC = consulta.buscarCategoria(cat);
+                        
+                        System.out.println("Coincidencias: " + resC.size());
+                        
+                        for (Bug b : resC)
+                            System.out.println(b);
+                    
                     break;
                 case 4:
-                    System.out.println("Seleccione equipo");
-                    System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester\n6 NULL");
-                    int eOp = scanner.nextInt();
-                    scanner.nextLine();
-                    String eq;
-                    switch (eOp) {
-                        case 1 -> eq = "Ciberseguridad";
-                        case 2 -> eq = "IT";
-                        case 3 -> eq = "Diseño";
-                        case 4 -> eq = "Desarrollador";
-                        case 5 -> eq = "Tester";
-                    }
-                    ArrayList<Bug> resE = consulta.buscarEquipo(eq);
-                    System.out.println("Coincidencias: " + resE.size());
-                    for (Bug b : resE)
-                        System.out.println(b);
+                        System.out.println("Seleccione equipo");
+                        System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester\n6 NULL");
+                        
+                        int eOp = scanner.nextInt();
+                        scanner.nextLine();
+                        String eq;
+                        
+                        switch (eOp) {
+                            case 1 -> eq = "Ciberseguridad";
+                            case 2 -> eq = "IT";
+                            case 3 -> eq = "Diseño";
+                            case 4 -> eq = "Desarrollador";
+                            case 5 -> eq = "Tester";
+                        }
+                        
+                        ArrayList<Bug> resE = consulta.buscarEquipo(eq);
+                        
+                        System.out.println("Coincidencias: " + resE.size());
+                        
+                        for (Bug b : resE)
+                            System.out.println(b);
+                    
                     break;
                 case 5:
-                    System.out.println("Seleccione nivel de seguridad");
-                    System.out.println("1 Baja\n2 Media\n3 Alta");
-                    int niv = scanner.nextInt();
-                    scanner.nextLine();
-                    ArrayList<Bug> resN = consulta.buscarNivelSeguridad(niv);
-                    System.out.println("Coincidencias: " + resN.size());
-                    for (Bug b : resN) System.out.println(b);
+                        System.out.println("Seleccione nivel de seguridad");
+                        System.out.println("1 Baja\n2 Media\n3 Alta");
+                        
+                        int niv = scanner.nextInt();
+                        scanner.nextLine();
+                        ArrayList<Bug> resN = consulta.buscarNivelSeguridad(niv);
+                        
+                        System.out.println("Coincidencias: " + resN.size());
+                        
+                        for (Bug b : resN) System.out.println(b);
+                    
                     break;
                 case 6:
                     break;
@@ -299,42 +315,42 @@ public class Menu {
                 case 1:
                     lista = Ordenamientos.ordenarTitulo(lista);
                     for (Bug b : lista)
-                        System.out.println(b);
+                        System.out.println(b.toString());
                     break;
                 case 2:
                     lista = Ordenamientos.ordenarID(lista);
                     for (Bug b : lista)
-                        System.out.println(b);
+                        System.out.println(b.toString());
                     break;
                 case 3:
                     lista = Ordenamientos.ordenarPrioridad(lista);
                     for (Bug b : lista)
-                        System.out.println(b);
+                        System.out.println(b.toString());
                     break;
                 case 4:
                     lista = Ordenamientos.ordenarEquipo(lista);
                     for (Bug b : lista)
-                        System.out.println(b);
+                        System.out.println(b.toString());
                     break;
                 case 5:
                     lista = Ordenamientos.ordenarNivelSeguridad(lista);
                     for (Bug b : lista)
-                        System.out.println(b);
+                        System.out.println(b.toString());
                     break;
                 case 6:
                     lista = Ordenamientos.ordenarCategoria(lista);
                     for (Bug b : lista)
-                        System.out.println(b);
+                        System.out.println(b.toString());
                     break;
                 case 7:
                     lista = Ordenamientos.ordenarEstado(lista);
                     for (Bug b : lista)
-                        System.out.println(b);
+                        System.out.println(b.toString());
                     break;
                 case 8:
                     lista = Ordenamientos.ordenarFecha(lista);
                     for (Bug b : lista)
-                        System.out.println(b);
+                        System.out.println(b.toString());
                     break;
                 case 9:
                     break;

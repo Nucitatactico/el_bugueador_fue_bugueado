@@ -69,15 +69,14 @@ public class Bug {
 
 	@Override
 	public String toString() {
-		return "Bug{" +
-			"ID='" + ID + '\'' +
-			", titulo='" + titulo + '\'' +
-			", prioridad='" + prioridad + '\'' +
-			", nivelSeguridad=" + nivelSeguridad +
-			", equipo='" + equipo + '\'' +
-			", categoria='" + categoria + '\'' +
-			", estado=" + estado +
-			", fecha=" + fecha +
-			'}';
+		return "\n\tBug" +
+			"\nID = " + ID + '\n' +
+			"Titulo = " + titulo + '\n' +
+			"Prioridad = " + prioridad + '\n' +
+			"NivelSeguridad = " + nivelSeguridad + '\n' +
+			"Equipo = " + equipo + '\n' +
+			"Categoria = " + categoria + '\n' +
+			"Estado = " + estado + '\n' +
+			"Fecha = " + fecha;
 	}
 }
