@@ -65,6 +65,12 @@ public class BaseDatos {
 
 		return todos;
 	}
+
+	public ArrayList<Bug> obtenerIndice(int indice)
+	{
+		return slots.get(indice);
+	}
+
 	//si queremos manejar el numero para los ordenamietnos
 	public int getTamano() {
 		return tamano;

@@ -14,6 +14,17 @@ public class Consulta
         this.db = db;
     }
 
+    public ArrayList<Bug> busquedaBug(Bug bug)
+    {
+        ArrayList<Bug> encontrados = db.obtenerIndice(db.indice(bug.getID()));
+
+        for(int i = 0; i < encontrados.size(); i++)
+            if(encontrados.get(i) != bug)
+                encontrados.remove(i);
+
+        return encontrados;
+    }
+
     public ArrayList<Bug> buscarTitulo(String titulo)
     {
         ArrayList<Bug> lista = db.obtenerTodos();
@@ -33,12 +44,21 @@ public class Consulta
 
     }
 
-/*  Revisar hash de base de datos
-    public Bug buscarID(String ID)
+    public ArrayList<Bug> buscarID(String ID)
     {
+        ArrayList<Bug> lista = db.obtenerTodos();
+        ArrayList<Bug> encontrados = new ArrayList<Bug>();
+        int indice;
 
+        do
+        {
+            indice = busquedaBinaria(ID, lista, Bug -> Bug.getID());
+
+            if(indice != -1)
+                encontrados.add(lista.remove(indice));
+
+        }while(indice != -1);
     }
-*/
 
     public ArrayList<Bug> buscarCategoria(String categoria)
     {
