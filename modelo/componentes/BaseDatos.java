@@ -32,7 +32,7 @@ public class BaseDatos {
 		int pos = indice(nuevo.ID);
 		ArrayList<Bug> slot = slots.get(pos);
 
-		//Busqueda linea en slot por si hay colsiones
+		//Busqueda lineal en slot por si hay colisiones
 		for (int i = 0; i < slot.size(); i++)
 			if (slot.get(i).ID.equals(nuevo.ID)){
 				slot.set(i, nuevo);

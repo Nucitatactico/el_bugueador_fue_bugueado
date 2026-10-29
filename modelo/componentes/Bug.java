@@ -63,6 +63,10 @@ public class Bug {
 		this.prioridad = prioridad;
 	}
 
+	public String getID() {
+		return ID;
+	}
+
 	@Override
 	public String toString() {
 		return "Bug{" +

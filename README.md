@@ -2,7 +2,7 @@
 ## Bug
 Atributos:
 - ID (String): Generado por la función hash a partitr del método generarID de la misma clase
-- tituo (String)
+- titulo (String)
 - prioridad(int) **puede tomar los siguientes valores**:
   - 1 Baja
   - 2 Media
