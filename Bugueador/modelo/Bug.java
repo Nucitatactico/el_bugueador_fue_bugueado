@@ -115,4 +115,16 @@ public class Bug {
 			"Estado = " + estado + '\n' +
 			"Fecha = " + fecha;
 	}
+
+	public boolean equals(Bug bug)
+	{
+		return  this.ID == bug.ID &&
+	 			this.titulo == bug.titulo &&
+	 			this.prioridad == bug.prioridad &&
+	 			this.nivelSeguridad == bug.nivelSeguridad &&
+	 			this.equipo == bug.equipo &&
+	 			this.categoria == bug.categoria &&
+	 			this.estado == bug.estado &&
+	 			this.fecha == bug.fecha;
+	}
 }

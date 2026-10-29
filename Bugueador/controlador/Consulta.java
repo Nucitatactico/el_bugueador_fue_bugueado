@@ -18,7 +18,7 @@ public class Consulta
         ArrayList<Bug> encontrados = db.obtenerIndice(db.indice(bug.getID()));
 
         for(int i = 0; i < encontrados.size(); i++)
-            if(encontrados.get(i) != bug)
+            if(encontrados.get(i).equals(bug))
                 encontrados.remove(i);
 
         return encontrados;
