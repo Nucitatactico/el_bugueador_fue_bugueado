@@ -1,8 +1,8 @@
-package Bugueador;
 
 import java.time.LocalDateTime;
-import Bugueador.modelo.BaseDatos;
-import Bugueador.modelo.Bug;
+import modelo.BaseDatos;
+import modelo.Bug;
+import vista.Menu;
 
 public class Principal {
     public static void main(String[] args) {

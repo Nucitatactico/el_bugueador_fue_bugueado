@@ -1,4 +1,4 @@
-package Bugueador.modelo;
+package modelo;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ public class BaseDatos {
 	private ArrayList<ArrayList<Bug>> slots;
 	private int tamano;
 
-	private static final int CAPACIDAD = 200;
+	private static final int CAPACIDAD = 211;//Numero primo chavos
 
 	public BaseDatos() {
 		this.slots = new ArrayList<>(CAPACIDAD);

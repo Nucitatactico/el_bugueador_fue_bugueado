@@ -1,9 +1,8 @@
-package Bugueador.controlador;
+package controlador;
 
 import java.util.ArrayList;
-import Bugueador.modelo.Bug;
-import Bugueador.modelo.BaseDatos;
-import Bugueador.controlador.Ordenamientos;
+import modelo.Bug;
+import modelo.BaseDatos;
 
 public class Consulta
 {

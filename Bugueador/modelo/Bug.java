@@ -1,4 +1,4 @@
-package Bugueador.modelo;
+package modelo;
 
 import java.time.LocalDateTime;
 

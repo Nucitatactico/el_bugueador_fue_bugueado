@@ -1,9 +1,9 @@
-package Bugueador.controlador;
+package controlador;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.BiPredicate;
-import Bugueador.modelo.Bug;
+import modelo.Bug;
 
 public abstract class Ordenamientos
 {

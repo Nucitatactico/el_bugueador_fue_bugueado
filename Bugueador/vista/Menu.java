@@ -1,12 +1,12 @@
-package Bugueador;
+package vista;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
-import Bugueador.modelo.BaseDatos;
-import Bugueador.modelo.Bug;
-import Bugueador.controlador.Consulta;
-import Bugueador.controlador.Ordenamientos;
+import modelo.BaseDatos;
+import modelo.Bug;
+import controlador.Consulta;
+import controlador.Ordenamientos;
 
 public class Menu {
     private BaseDatos db;
