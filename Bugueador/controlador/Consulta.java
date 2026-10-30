@@ -46,19 +46,13 @@ public class Consulta
 
     public ArrayList<Bug> buscarID(String ID)
     {
-        ArrayList<Bug> lista = Ordenamientos.ordenarID(db.obtenerTodos());
-        ArrayList<Bug> encontrados = new ArrayList<Bug>();
-        int indice;
+        ArrayList<Bug> encontrados = db.obtenerIndice(db.indice(ID));
 
-        do
-        {
-            indice = busquedaBinaria(ID, lista, Bug -> Bug.getID());
+        for(int i = 0; i < encontrados.size(); i++)
+            if(encontrados.get(i)getID() != ID)
+                encontrados.remove(i);
 
-            if(indice != -1)
-                encontrados.add(lista.remove(indice));
-
-        }while(indice != -1);
-	return encontrados;
+        return encontrados;
     }
 
     public ArrayList<Bug> buscarCategoria(String categoria)
