@@ -43,10 +43,10 @@ public class Bug {
 	}
 
 	//Metodo de horner empleando primos
-	public static int hashearID() {
+	public static int hashearID(String id) {
 		int hash = 7;
-		for (int i = 0; i < ID.length(); i++) {
-			hash = 31 * hash + ID.charAt(i);
+		for (int i = 0; i < id.length(); i++) {
+			hash = 31 * hash + id.charAt(i);
 		}
 		return hash;
 	}
