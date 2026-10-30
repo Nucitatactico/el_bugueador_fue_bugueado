@@ -17,7 +17,7 @@ public class BaseDatos {
 		this.tamano = 0;
 	}
 
-	private int indice(String id) {
+	public int indice(String id) {
 		int hash = Bug.hashearID(id) & 0x7fffffff;//Es lo mismo que un absoluto pero mas chispa
 		return hash % CAPACIDAD;
 	}
