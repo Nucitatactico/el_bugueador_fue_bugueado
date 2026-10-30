@@ -49,7 +49,7 @@ public class Consulta
         ArrayList<Bug> encontrados = new ArrayList<Bug>();
 
         for(Bug bug : db.obtenerIndice(db.indice(ID)))
-            if(bug.getID() == ID)
+            if(bug.getID().compareToIgnoreCase(ID) == 0)
                 encontrados.add(bug);
 
         return encontrados;
