@@ -33,8 +33,7 @@ public class Menu {
             System.out.println("7.- Salir");
             System.out.println("Elige una opción: ");
 
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            opcion = Integer.parseInt(scanner.nextLine());
 
             switch (opcion) {
                 case 1:
@@ -73,17 +72,17 @@ public class Menu {
         System.out.println("-> Prioridad");
         System.out.println("1 Baja\n2 Media\n3 Alta");
         System.out.println("Ingresa el número: ");
-        int prioridad = scanner.nextInt();
+        int prioridad = Integer.parseInt(scanner.nextLine());
 
         System.out.println("-> Nivel de seguridad");
         System.out.println("1 Baja\n2 Media\n3 Alta");
         System.out.println("Ingresa el número: ");
-        int nivelSeguridad = scanner.nextInt();
+        int nivelSeguridad = Integer.parseInt(scanner.nextLine());
         
         System.out.println("-> Equipos");
         System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester");
         System.out.println("Ingresa el número: ");
-        int opEquipo = scanner.nextInt();
+        int opEquipo = Integer.parseInt(scanner.nextLine());
         String equipo;
         switch(opEquipo) {
             case 1 -> equipo = "Ciberseguridad";
@@ -97,7 +96,7 @@ public class Menu {
         System.out.println("-> Categoría");
         System.out.println("1 Interfaz\n2 Lógica\n3 Rendimiento\n4 Seguridad");
         System.out.println("Ingresa el número: ");
-        int opCategoria = scanner.nextInt();
+        int opCategoria = Integer.parseInt(scanner.nextLine());
         String categoria = "Interfaz";
         switch(opCategoria) {
             case 1 -> categoria = "Interfaz";
@@ -109,7 +108,7 @@ public class Menu {
         System.out.println("-> Estado");
         System.out.println("1 Registrado\n2 En desarrollo\n3 En revisión\n4 Concluido\n5 No se va a arreglar");
         System.out.println("Ingresa el número: ");
-        int estado = scanner.nextInt();
+        int estado = Integer.parseInt(scanner.nextLine());
 
         Bug nuevoBug = new Bug(titulo, prioridad, nivelSeguridad, equipo, categoria, estado, LocalDateTime.now());
         db.registrar(nuevoBug);
@@ -147,8 +146,7 @@ public class Menu {
             for (int i = 0; i < encontrados.size(); i++)
                 System.out.println((i + 1) + ". " + encontrados.get(i));
             System.out.println("Elige el numero del bug a modificar: ");
-            int seleccion = scanner.nextInt();
-            scanner.nextLine();
+            int seleccion = Integer.parseInt(scanner.nextLine());
 
             if (seleccion >= 1 && seleccion <= encontrados.size())
                 existente = encontrados.get(seleccion - 1);
@@ -164,18 +162,17 @@ public class Menu {
         System.out.println("Nueva prioridad");
         System.out.println("1 Baja\n2 Media\n3 Alta");
         System.out.println("Ingresa el número: ");
-        int prioridad = scanner.nextInt();
+        int prioridad = Integer.parseInt(scanner.nextLine());
         
         System.out.println("Nuevo nivel de seguridad");
         System.out.println("1 Baja\n2 Media\n3 Alta");
         System.out.println("Ingresa el número: ");
-        int nivelSeguridad = scanner.nextInt();
-        scanner.nextLine();
+        int nivelSeguridad = Integer.parseInt(scanner.nextLine());
         
         System.out.println("Nuevo equipo");
         System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester");
         System.out.println("Ingresa el número: ");
-        int opEquipo = scanner.nextInt();
+        int opEquipo = Integer.parseInt(scanner.nextLine());
         String equipo;
         switch(opEquipo) {
             case 1 -> equipo = "Ciberseguridad";
@@ -189,7 +186,7 @@ public class Menu {
         System.out.println("Nueva categoria");
         System.out.println("1 Interfaz\n2 Lógica\n3 Rendimiento\n4 Seguridad");
         System.out.println("Ingresa el número: ");
-        int opCategoria = scanner.nextInt();
+        int opCategoria = Integer.parseInt(scanner.nextLine());
         String categoria = "Interfaz";
         switch(opCategoria) {
             case 1 -> categoria = "Interfaz";
@@ -201,11 +198,10 @@ public class Menu {
         System.out.println("Nuevo estado");
         System.out.println("1 Registrado\n2 En desarrollo\n3 En revisión\n4 Concluido\n5 No se va a arreglar");
         System.out.println("Ingresa el número: ");
-        int estado = scanner.nextInt();
-        scanner.nextLine();
+        int estado = Integer.parseInt(scanner.nextLine());
         
         existente.actualizar(titulo, prioridad, nivelSeguridad, equipo, categoria, estado);
-        System.out.println("Bug modificado exitosamente.\nNuevo ID: " + bugModificado.getID());
+        System.out.println("Bug modificado exitosamente.\nNuevo ID: " + existente.getID());
     }
     
     private void menuBuscar() {
@@ -219,8 +215,7 @@ public class Menu {
             System.out.println("5.- Nivel de seguridad");
             System.out.println("6.- Regresar");
             System.out.print("Elige una opcion: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            opcion = Integer.parseInt(scanner.nextLine());
             
             switch (opcion) {
                 case 1:
@@ -236,7 +231,7 @@ public class Menu {
                         String id = scanner.nextLine();
                         ArrayList<Bug> bID = consulta.buscarID(id);
                         if (bID != null) {
-                            System.out.println("Coincidencias: 1");
+                            System.out.println("Coincidencias:");
                             System.out.println(bID);
                         }
                         else
@@ -246,8 +241,7 @@ public class Menu {
                         System.out.println("Seleccione categoria");
                         System.out.println("1 Interfaz\n2 Lógica\n3 Rendimiento\n4 Seguridad");
                         
-                        int cOp = scanner.nextInt();
-                        scanner.nextLine();
+                        int cOp = Integer.parseInt(scanner.nextLine());
                         String cat = "Interfaz";
                         
                         switch (cOp) {
@@ -269,8 +263,7 @@ public class Menu {
                         System.out.println("Seleccione equipo");
                         System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester");
                         
-                        int eOp = scanner.nextInt();
-                        scanner.nextLine();
+                        int eOp = Integer.parseInt(scanner.nextLine());
                         String eq = "IT";
                         
                         switch (eOp) {
@@ -293,8 +286,7 @@ public class Menu {
                         System.out.println("Seleccione nivel de seguridad");
                         System.out.println("1 Baja\n2 Media\n3 Alta");
                         
-                        int niv = scanner.nextInt();
-                        scanner.nextLine();
+                        int niv = Integer.parseInt(scanner.nextLine());
                         ArrayList<Bug> resN = consulta.buscarNivelSeguridad(niv);
                         
                         System.out.println("Coincidencias: " + resN.size());
@@ -325,8 +317,7 @@ public class Menu {
             System.out.println("8.- Fecha");
             System.out.println("9.- Regresar");
             System.out.print("Elige una opcion: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            opcion = Integer.parseInt(scanner.nextLine());
 
             ArrayList<Bug> lista = db.obtenerTodos();
             switch (opcion) {
