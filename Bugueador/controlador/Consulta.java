@@ -3,6 +3,7 @@ package controlador;
 import java.util.ArrayList;
 import modelo.Bug;
 import modelo.BaseDatos;
+import controlador.Ordenamientos;
 
 public class Consulta
 {
@@ -18,7 +19,7 @@ public class Consulta
         ArrayList<Bug> encontrados = db.obtenerIndice(db.indice(bug.getID()));
 
         for(int i = 0; i < encontrados.size(); i++)
-            if(encontrados.get(i).equals(bug))
+            if(!encontrados.get(i).equals(bug))
                 encontrados.remove(i);
 
         return encontrados;
@@ -26,7 +27,7 @@ public class Consulta
 
     public ArrayList<Bug> buscarTitulo(String titulo)
     {
-        ArrayList<Bug> lista = db.obtenerTodos();
+        ArrayList<Bug> lista = Ordenamientos.ordenarTitulo(db.obtenerTodos());
         ArrayList<Bug> encontrados = new ArrayList<Bug>();
         int indice;
 
@@ -45,7 +46,7 @@ public class Consulta
 
     public ArrayList<Bug> buscarID(String ID)
     {
-        ArrayList<Bug> lista = db.obtenerTodos();
+        ArrayList<Bug> lista = Ordenamientos.ordenarID(db.obtenerTodos());
         ArrayList<Bug> encontrados = new ArrayList<Bug>();
         int indice;
 
@@ -62,7 +63,7 @@ public class Consulta
 
     public ArrayList<Bug> buscarCategoria(String categoria)
     {
-        ArrayList<Bug> lista = db.obtenerTodos();
+        ArrayList<Bug> lista = Ordenamientos.ordenarCategoria(db.obtenerTodos());
         ArrayList<Bug> encontrados = new ArrayList<Bug>();
         int indice;
 
@@ -81,7 +82,7 @@ public class Consulta
 
     public ArrayList<Bug> buscarEquipo(String equipo)
     {
-        ArrayList<Bug> lista = db.obtenerTodos();
+        ArrayList<Bug> lista = Ordenamientos.ordenarEquipo(db.obtenerTodos());
         ArrayList<Bug> encontrados = new ArrayList<Bug>();
         int indice;
 
@@ -100,7 +101,7 @@ public class Consulta
 
     public ArrayList<Bug> buscarNivelSeguridad(int nivelSeguridad)
     {
-        ArrayList<Bug> lista = db.obtenerTodos();
+        ArrayList<Bug> lista = Ordenamientos.ordenarNivelSeguridad(db.obtenerTodos());
         ArrayList<Bug> encontrados = new ArrayList<Bug>();
         int indice;
 
