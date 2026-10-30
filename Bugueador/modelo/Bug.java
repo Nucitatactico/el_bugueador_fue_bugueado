@@ -41,6 +41,15 @@ public class Bug {
 
 		return Long.toString(codigo, 36).toUpperCase();//Sistema alfanumerico
 	}
+	
+	public void actualizar(String titulo, int prioridad, int nivelSeguridad, String equipo, String categoria, int estado) {
+		this.titulo = titulo;
+		this.prioridad = prioridad;
+		this.nivelSeguridad = nivelSeguridad;
+		this.equipo = equipo;
+		this.categoria = categoria;
+		this.estado = estado;
+	}
 
 	//Metodo de horner empleando primos
 	public static int hashearID(String id) {

@@ -25,8 +25,8 @@ public class Menu {
             System.out.println("     ADMINISTRADOR DE BUGS     ");
             System.out.println("*******************************");
             System.out.println("1.- Ingresar bug");
-            System.out.println("2.- Eliminara bug");
-            System.out.println("3.- Buscar bug");
+            System.out.println("2.- Eliminar bug");
+            System.out.println("3.- Modificar bug");
             System.out.println("4.- Buscar bug");
             System.out.println("5.- Listar bugs");
             System.out.println("6.- Cantidad de bugs");
@@ -81,7 +81,7 @@ public class Menu {
         int nivelSeguridad = scanner.nextInt();
         
         System.out.println("-> Equipos");
-        System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester\n6 NULL");
+        System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester");
         System.out.println("Ingresa el número: ");
         int opEquipo = scanner.nextInt();
         String equipo;
@@ -91,14 +91,14 @@ public class Menu {
             case 3 -> equipo = "Diseño";
             case 4 -> equipo = "Desarrollador";
             case 5 -> equipo = "Tester";
-            default -> equipo = "NULL";
+            default -> equipo = "";
         }
         
         System.out.println("-> Categoría");
         System.out.println("1 Interfaz\n2 Lógica\n3 Rendimiento\n4 Seguridad");
         System.out.println("Ingresa el número: ");
         int opCategoria = scanner.nextInt();
-        String categoria;
+        String categoria = "Interfaz";
         switch(opCategoria) {
             case 1 -> categoria = "Interfaz";
             case 2 -> categoria = "Lógica";
@@ -108,8 +108,9 @@ public class Menu {
         
         System.out.println("-> Estado");
         System.out.println("1 Registrado\n2 En desarrollo\n3 En revisión\n4 Concluido\n5 No se va a arreglar");
+        System.out.println("Ingresa el número: ");
         int estado = scanner.nextInt();
-        
+
         Bug nuevoBug = new Bug(titulo, prioridad, nivelSeguridad, equipo, categoria, estado, LocalDateTime.now());
         db.registrar(nuevoBug);
         System.out.println("Bug con ID: " + nuevoBug.getID());
@@ -130,10 +131,31 @@ public class Menu {
         System.out.println("\nMODIFICAR BUG");
         System.out.println("Ingrese el ID del bug a modificar: ");
         String id = scanner.nextLine();
-        Bug existente = consulta.buscarID(id);
-        if (existente == null) {
+        ArrayList<Bug> encontrados = consulta.buscarID(id);
+
+        if (encontrados.isEmpty()) {
             System.out.println("Bug no encontrado");
             return;
+        }
+
+        Bug existente = null;
+
+        if (encontrados.size() == 1)
+            existente = encontrados.get(0);
+        else {
+            System.out.println("Hay multiples coincidencias");
+            for (int i = 0; i < encontrados.size(); i++)
+                System.out.println((i + 1) + ". " + encontrados.get(i));
+            System.out.println("Elige el numero del bug a modificar: ");
+            int seleccion = scanner.nextInt();
+            scanner.nextLine();
+
+            if (seleccion >= 1 && seleccion <= encontrados.size())
+                existente = encontrados.get(seleccion - 1);
+            else {
+                System.out.println();
+                return;
+            }
         }
         
         System.out.println("Nuevo titulo: ");
@@ -151,7 +173,7 @@ public class Menu {
         scanner.nextLine();
         
         System.out.println("Nuevo equipo");
-        System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester\n6 NULL");
+        System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester");
         System.out.println("Ingresa el número: ");
         int opEquipo = scanner.nextInt();
         String equipo;
@@ -161,14 +183,14 @@ public class Menu {
             case 3 -> equipo = "Diseño";
             case 4 -> equipo = "Desarrollador";
             case 5 -> equipo = "Tester";
-            default -> equipo = "NULL";
+            default -> equipo = "";
         }
         
         System.out.println("Nueva categoria");
         System.out.println("1 Interfaz\n2 Lógica\n3 Rendimiento\n4 Seguridad");
         System.out.println("Ingresa el número: ");
         int opCategoria = scanner.nextInt();
-        String categoria;
+        String categoria = "Interfaz";
         switch(opCategoria) {
             case 1 -> categoria = "Interfaz";
             case 2 -> categoria = "Lógica";
@@ -178,16 +200,12 @@ public class Menu {
         
         System.out.println("Nuevo estado");
         System.out.println("1 Registrado\n2 En desarrollo\n3 En revisión\n4 Concluido\n5 No se va a arreglar");
+        System.out.println("Ingresa el número: ");
         int estado = scanner.nextInt();
         scanner.nextLine();
         
-        db.eliminar(id);
-        Bug bugModificado = new Bug(titulo, prioridad, nivelSeguridad, equipo, categoria, estado, LocalDateTime.now());
-        boolean modificado = db.modificar(bugModificado);
-        if (modificado)
-            System.out.println("Bug modificado exitosamente.\nNuevo ID: " + bugModificado.getID());
-        else
-            System.out.println("No se pudo modificar");
+        existente.actualizar(titulo, prioridad, nivelSeguridad, equipo, categoria, estado);
+        System.out.println("Bug modificado exitosamente.\nNuevo ID: " + bugModificado.getID());
     }
     
     private void menuBuscar() {
@@ -216,7 +234,7 @@ public class Menu {
                 case 2:
                         System.out.print("Ingrese ID a buscar: ");
                         String id = scanner.nextLine();
-                        Bug bID = consulta.buscarID(id);
+                        ArrayList<Bug> bID = consulta.buscarID(id);
                         if (bID != null) {
                             System.out.println("Coincidencias: 1");
                             System.out.println(bID);
@@ -249,11 +267,11 @@ public class Menu {
                     break;
                 case 4:
                         System.out.println("Seleccione equipo");
-                        System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester\n6 NULL");
+                        System.out.println("1 Ciberseguridad\n2 IT\n3 Diseño\n4 Desarrollador\n5 Tester");
                         
                         int eOp = scanner.nextInt();
                         scanner.nextLine();
-                        String eq;
+                        String eq = "IT";
                         
                         switch (eOp) {
                             case 1 -> eq = "Ciberseguridad";

@@ -16,7 +16,7 @@ public class Consulta
 
     public ArrayList<Bug> busquedaBug(Bug bug)
     {
-        ArrayList<Bug> encontrados = new ArrayList<bug>();
+        ArrayList<Bug> encontrados = new ArrayList<Bug>();
 
         for(Bug recorre : db.obtenerIndice(db.indice(bug.getID())))
             if(recorre.equals(bug))
@@ -46,7 +46,7 @@ public class Consulta
 
     public ArrayList<Bug> buscarID(String ID)
     {
-        ArrayList<Bug> encontrados = new ArrayList<bug>();
+        ArrayList<Bug> encontrados = new ArrayList<Bug>();
 
         for(Bug bug : db.obtenerIndice(db.indice(ID)))
             if(bug.getID() == ID)
