@@ -57,6 +57,7 @@ public class Consulta
                 encontrados.add(lista.remove(indice));
 
         }while(indice != -1);
+	return encontrados;
     }
 
     public ArrayList<Bug> buscarCategoria(String categoria)
