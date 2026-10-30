@@ -358,7 +358,7 @@ public class Menu {
                     System.out.println("Opcion no valida");
                     break;
             }
-        } while (opcion != 10);
+        } while (opcion !=9);
     }
 
     private void menuCantidad() {
