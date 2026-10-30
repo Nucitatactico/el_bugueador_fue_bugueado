@@ -16,11 +16,11 @@ public class Consulta
 
     public ArrayList<Bug> busquedaBug(Bug bug)
     {
-        ArrayList<Bug> encontrados = db.obtenerIndice(db.indice(bug.getID()));
+        ArrayList<Bug> encontrados = new ArrayList<bug>();
 
-        for(int i = 0; i < encontrados.size(); i++)
-            if(!encontrados.get(i).equals(bug))
-                encontrados.remove(i);
+        for(Bug recorre : db.obtenerIndice(db.indice(bug.getID())))
+            if(recorre.equals(bug))
+                encontrados.add(recorre);
 
         return encontrados;
     }
@@ -46,11 +46,11 @@ public class Consulta
 
     public ArrayList<Bug> buscarID(String ID)
     {
-        ArrayList<Bug> encontrados = db.obtenerIndice(db.indice(ID));
+        ArrayList<Bug> encontrados = new ArrayList<bug>();
 
-        for(int i = 0; i < encontrados.size(); i++)
-            if(encontrados.get(i)getID() != ID)
-                encontrados.remove(i);
+        for(Bug bug : db.obtenerIndice(db.indice(ID)))
+            if(bug.getID() == ID)
+                encontrados.add(bug);
 
         return encontrados;
     }
